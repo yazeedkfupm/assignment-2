@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Assignment 2 – Portfolio</title>
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+  <header class="site-header" role="banner">
+    <h1 id="greeting" class="fade-in">Welcome!</h1>
+    <div class="controls">
+      <label class="sr-only" for="usernameInput">Set your name</label>
+      <input id="usernameInput" type="text" placeholder="Enter your name…">
+      <button id="saveNameBtn" class="btn">Save</button>
+      <button id="clearNameBtn" class="btn btn-secondary">Clear</button>
+      <button id="themeToggle" class="btn" aria-pressed="false">Toggle Theme</button>
+    </div>
+    <nav class="tabs" aria-label="Primary">
+      <button class="tab active" data-tab="about" aria-selected="true" role="tab">About</button>
+      <button class="tab" data-tab="projects" role="tab" aria-selected="false">Projects</button>
+      <button class="tab" data-tab="contact" role="tab" aria-selected="false">Contact</button>
+    </nav>
+  </header>
+
+  <main>
+    <section id="about" class="tab-panel show" role="tabpanel">
+      <h2>About Me</h2>
+      <p class="muted">I am yazed almutairi I study computer science at KFUPM.</p>
+
+      <div class="callout">
+        <strong>API Demo</strong>
+        <p>Below it will try to fetch a fun placeholder fact. </p>
+        <div id="apiDemo" class="card">
+          <div id="apiLoading" class="loading">Loading…</div>
+          <div id="apiError" class="error hidden">
+            Couldn’t load the data.
+            <button id="apiRetry" class="btn btn-small">Retry</button>
+          </div>
+          <div id="apiContent" class="hidden"></div>
+        </div>
+      </div>
+    </section>
+
+    <section id="projects" class="tab-panel" role="tabpanel" aria-hidden="true">
+      <h2>Projects</h2>
+      <div class="toolbar">
+        <label for="search">Search:</label>
+        <input id="search" type="search" placeholder="Type to filter…">
+
+        <label for="filter">Type:</label>
+        <select id="filter">
+          <option value="all">All</option>
+          <option value="web">Web</option>
+          <option value="data">Data</option>
+          <option value="design">Design</option>
+        </select>
+
+        <label for="sort">Sort by:</label>
+        <select id="sort">
+          <option value="date-desc">Date (newest)</option>
+          <option value="date-asc">Date (oldest)</option>
+          <option value="title-asc">Title (A–Z)</option>
+          <option value="title-desc">Title (Z–A)</option>
+        </select>
+      </div>
+
+      <div id="projectsList" class="grid"></div>
+      <div id="emptyState" class="empty hidden">No projects found.</div>
+    </section>
+
+    <section id="contact" class="tab-panel" role="tabpanel" aria-hidden="true">
+      <h2>Contact</h2>
+      <form id="contactForm" novalidate class="card">
+        <div class="form-field">
+          <label for="name">Name</label>
+          <input id="name" name="name" required>
+          <small class="field-error" id="nameError" aria-live="polite"></small>
+        </div>
+        <div class="form-field">
+          <label for="email">Email</label>
+          <input id="email" name="email" type="email" required>
+          <small class="field-error" id="emailError" aria-live="polite"></small>
+        </div>
+        <div class="form-field">
+          <label for="message">Message</label>
+          <textarea id="message" name="message" minlength="10" required></textarea>
+          <small class="field-error" id="messageError" aria-live="polite"></small>
+        </div>
+        <button type="submit" class="btn">Send</button>
+        <div id="formStatus" class="status" aria-live="polite"></div>
+      </form>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <small>&copy; <span id="year"></span> Yazed Almutairi — Assignment 2</small>
+  </footer>
+
+  <script src="js/script.js"></script>
+</body>
+</html>
